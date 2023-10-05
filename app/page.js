@@ -1,113 +1,245 @@
-import Image from 'next/image'
+"use client";
+import { useEffect, useState } from "react";
+import Link from "next/link";
+import { Link as LinkScroll } from "react-scroll";
+import Logo from "/public/assets/Logo.png";
+import Image from "next/image";
+import { BiLogoTiktok } from "react-icons/bi";
+import { BiLogoFacebook } from "react-icons/bi";
+import { BiLogoInstagramAlt } from "react-icons/bi";
+import { BiHomeHeart } from "react-icons/bi";
+import { FaRegSadTear } from "react-icons/fa";
+import { GiPartyPopper } from "react-icons/gi";
+import { BsChatText } from "react-icons/bs";
+import { BiPhoneCall } from "react-icons/bi";
 
-export default function Home() {
+const Header = () => {
+  const [activeLink, setActiveLink] = useState(null);
+  const [scrollActive, setScrollActive] = useState(false);
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      setScrollActive(window.scrollY > 20);
+    });
+  }, []);
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">app/page.js</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
+    <>
+      <header
+        className={
+          "fixed top-0 w-full z-30 transition-all " +
+          (scrollActive ? "shadow-md pt-0 bg-white-500 " : "pt-4")
+        }
+      >
+        <nav className="max-w-screen-xl px-6 sm:px-8 lg:px-16 mx-auto grid grid-flow-col py-3 sm:py-4">
+          <div className="col-start-1 col-end-2 flex items-center">
             <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
+              src={Logo}
+              alt="Duendecito Huancayo"
+              className="h-8 w-auto"
             />
-          </a>
+          </div>
+          <ul className="hidden lg:flex col-start-4 col-end-8 text-black-500 items-center ">
+            <LinkScroll
+              activeClass="active"
+              to="inicio"
+              spy={true}
+              smooth={true}
+              duration={1000}
+              onSetActive={() => {
+                setActiveLink("inicio");
+              }}
+              className={
+                "px-4 py-2 mx-2 cursor-pointer animation-hover inline-block relative" +
+                (activeLink === "inicio"
+                  ? " text-pink-500 animation-active "
+                  : " text-black-500 hover:text-pink-500 ")
+              }
+            >
+              Inicio
+            </LinkScroll>
+            <LinkScroll
+              activeClass="active"
+              to="feature"
+              spy={true}
+              smooth={true}
+              duration={1000}
+              onSetActive={() => {
+                setActiveLink("feature");
+              }}
+              className={
+                "px-4 py-2 mx-2 cursor-pointer animation-hover inline-block relative" +
+                (activeLink === "feature"
+                  ? " text-pink-500 animation-active "
+                  : " text-black-500 hover:text-pink-500 ")
+              }
+            >
+              Estresada?
+            </LinkScroll>
+            <LinkScroll
+              activeClass="active"
+              to="ourservices"
+              spy={true}
+              smooth={true}
+              duration={1000}
+              onSetActive={() => {
+                setActiveLink("ourservices");
+              }}
+              className={
+                "px-4 py-2 mx-2 cursor-pointer animation-hover inline-block relative" +
+                (activeLink === "ourservices"
+                  ? " text-pink-500 animation-active "
+                  : " text-black-500 hover:text-pink-500 ")
+              }
+            >
+              Solucion
+            </LinkScroll>
+            <LinkScroll
+              activeClass="active"
+              to="testimonial"
+              spy={true}
+              smooth={true}
+              duration={1000}
+              onSetActive={() => {
+                setActiveLink("testimonial");
+              }}
+              className={
+                "px-4 py-2 mx-2 cursor-pointer animation-hover inline-block relative" +
+                (activeLink === "testimonial"
+                  ? " text-pink-500 animation-active "
+                  : " text-black-500 hover:text-pink-500 ")
+              }
+            >
+              Testimonios
+            </LinkScroll>
+            <LinkScroll
+              activeClass="active"
+              to="contactus"
+              spy={true}
+              smooth={true}
+              duration={1000}
+              onSetActive={() => {
+                setActiveLink("contactus");
+              }}
+              className={
+                "px-4 py-2 mx-2 cursor-pointer animation-hover inline-block relative" +
+                (activeLink === "contactus"
+                  ? " text-pink-500 animation-active "
+                  : " text-black-500 hover:text-pink-500 ")
+              }
+            >
+              Contactanos
+            </LinkScroll>
+          </ul>
+          <div className="col-start-10 col-end-12 font-medium flex justify-end items-center ">
+            <BiLogoFacebook className="text-pink-500 text-lg mx-2 sm:mx-4 capitalize tracking-wide hover:text-orange-500 transition-all cursor-pointer" />
+            <BiLogoInstagramAlt className="text-pink-500 text-lg mx-2 sm:mx-4 capitalize tracking-wide hover:text-orange-500 transition-all cursor-pointer" />
+            <BiLogoTiktok className="text-pink-500 text-lg mx-2 sm:mx-4 capitalize tracking-wide hover:text-orange-500 transition-all cursor-pointer" />
+          </div>
+        </nav>
+      </header>
+      {/* Mobile Navigation */}
+      <nav className="fixed lg:hidden bottom-0 left-0 right-0 z-20 px-1 sm:px-8 shadow-t">
+        <div className="bg-white sm:px-3">
+          <ul className="flex w-full justify-between items-center text-black-500">
+            <LinkScroll
+              activeClass="active"
+              to="inicio"
+              spy={true}
+              smooth={true}
+              duration={1000}
+              onSetActive={() => {
+                setActiveLink("inicio");
+              }}
+              className={
+                "mx-1 sm:mx-2 px-2 sm:px-4 py-2 flex flex-col items-center text-xs border-t-2 transition-all " +
+                (activeLink === "inicio"
+                  ? "  border-pink-500 text-pink-500"
+                  : " border-transparent")
+              }
+            >
+              <BiHomeHeart className="h-6 w-6" />
+              Inicio
+            </LinkScroll>
+            <LinkScroll
+              activeClass="active"
+              to="feature"
+              spy={true}
+              smooth={true}
+              duration={1000}
+              onSetActive={() => {
+                setActiveLink("feature");
+              }}
+              className={
+                "mx-1 sm:mx-2 px-2 sm:px-4 py-2 flex flex-col items-center text-xs border-t-2 transition-all " +
+                (activeLink === "feature"
+                  ? "  border-pink-500 text-pink-500"
+                  : " border-transparent")
+              }
+            >
+              <FaRegSadTear className="h-6 w-6" />
+              Estresada?
+            </LinkScroll>
+            <LinkScroll
+              activeClass="active"
+              to="ourservices"
+              spy={true}
+              smooth={true}
+              duration={1000}
+              onSetActive={() => {
+                setActiveLink("ourservices");
+              }}
+              className={
+                "mx-1 sm:mx-2 px-2 sm:px-4 py-2 flex flex-col items-center text-xs border-t-2 transition-all " +
+                (activeLink === "ourservices"
+                  ? "  border-pink-500 text-pink-500"
+                  : " border-transparent")
+              }
+            >
+              <GiPartyPopper className="h-6 w-6" />
+              Solucion
+            </LinkScroll>
+            <LinkScroll
+              activeClass="active"
+              to="testimonial"
+              spy={true}
+              smooth={true}
+              duration={1000}
+              onSetActive={() => {
+                setActiveLink("testimonial");
+              }}
+              className={
+                "mx-1 sm:mx-2 px-2 sm:px-4 py-2 flex flex-col items-center text-xs border-t-2 transition-all " +
+                (activeLink === "testimonial"
+                  ? "  border-pink-500 text-pink-500"
+                  : " border-transparent")
+              }
+            >
+              <BsChatText className="h-6 w-6" />
+              Testimonios
+            </LinkScroll>
+            <LinkScroll
+              activeClass="active"
+              to="contactus"
+              spy={true}
+              smooth={true}
+              duration={1000}
+              onSetActive={() => {
+                setActiveLink("contactus");
+              }}
+              className={
+                "mx-1 sm:mx-2 px-2 sm:px-4 py-2 flex flex-col items-center text-xs border-t-2 transition-all " +
+                (activeLink === "contactus"
+                  ? "  border-pink-500 text-pink-500"
+                  : " border-transparent")
+              }
+            >
+              <BiPhoneCall className="h-6 w-6" />
+              Contactanos
+            </LinkScroll>
+          </ul>
         </div>
-      </div>
+      </nav>
+    </>
+  );
+};
 
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800 hover:dark:bg-opacity-30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore the Next.js 13 playground.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  )
-}
+export default Header;
