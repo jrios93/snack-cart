@@ -12,8 +12,16 @@ import { FaRegSadTear } from "react-icons/fa";
 import { GiPartyPopper } from "react-icons/gi";
 import { BsChatText } from "react-icons/bs";
 import { BiPhoneCall } from "react-icons/bi";
+import ButtonOutline from "./misc/ButtonOutline";
 
 const Header = () => {
+  const numeroWhatsApp = "+51932268527";
+
+  const mensajeWhatsApp = "¡Hola! Estoy interesado en tus servicios.";
+
+  const enlaceWhatsApp = `https://api.whatsapp.com/send?phone=${numeroWhatsApp}&text=${encodeURIComponent(
+    mensajeWhatsApp
+  )}`;
   const [activeLink, setActiveLink] = useState(null);
   const [scrollActive, setScrollActive] = useState(false);
   useEffect(() => {
@@ -126,13 +134,23 @@ const Header = () => {
                   : " text-black-500 hover:text-pink-500 ")
               }
             >
-              Contactanos
+              Subscribete
             </LinkScroll>
           </ul>
           <div className="col-start-10 col-end-12 font-medium flex justify-end items-center ">
-            <BiLogoFacebook className="text-pink-500 text-lg mx-2 sm:mx-4 capitalize tracking-wide hover:text-orange-500 transition-all cursor-pointer" />
-            <BiLogoInstagramAlt className="text-pink-500 text-lg mx-2 sm:mx-4 capitalize tracking-wide hover:text-orange-500 transition-all cursor-pointer" />
+            <Link
+              href={"https://www.facebook.com/profile.php?id=100093239148465"}
+            >
+              <BiLogoFacebook className="text-pink-500 text-lg mx-2 sm:mx-4 capitalize tracking-wide hover:text-orange-500 transition-all cursor-pointer" />
+            </Link>
+            <Link href={"https://www.instagram.com/elduendecito.huancayo/"}>
+              <BiLogoInstagramAlt className="text-pink-500 text-lg mx-2 sm:mx-4 capitalize tracking-wide hover:text-orange-500 transition-all cursor-pointer" />
+            </Link>
+
             <BiLogoTiktok className="text-pink-500 text-lg mx-2 sm:mx-4 capitalize tracking-wide hover:text-orange-500 transition-all cursor-pointer" />
+            <Link href={enlaceWhatsApp}>
+              <ButtonOutline>Escribeme</ButtonOutline>
+            </Link>
           </div>
         </nav>
       </header>
@@ -233,7 +251,7 @@ const Header = () => {
               }
             >
               <BiPhoneCall className="h-6 w-6" />
-              Contactanos
+              Subscribete
             </LinkScroll>
           </ul>
         </div>

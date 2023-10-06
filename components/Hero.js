@@ -11,6 +11,11 @@ import ButtonPrimary from "@/app/misc/ButtonPrimary";
 
 const Hero = () => {
   const scrollAnimation = useMemo(() => getScrollAnimation(), []);
+  const handleDownloadCatalog = () => {
+    // Reemplaza 'ruta/al/catalogo.pdf' con la ruta correcta al archivo del catálogo
+    const catalogUrl = "/catalogo.pdf";
+    window.location.href = catalogUrl;
+  };
   return (
     <div className="max-w-screen-xl mt-24 px-8 xl:px-16 mx-auto" id="inicio">
       <ScrollAnimationWrapper>
@@ -26,7 +31,11 @@ const Hero = () => {
               Provide a network for all your needs with ease and fun using
               LaslesVPN discover interesting features from us.
             </p>
-            <ButtonPrimary>Descargar Catalogo</ButtonPrimary>
+            <ButtonPrimary>
+              <button onClick={handleDownloadCatalog}>
+                Descargar Catalogo
+              </button>
+            </ButtonPrimary>
           </div>
           <div className="flex w-full">
             <motion.div className="h-full w-full" variants={scrollAnimation}>
