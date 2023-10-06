@@ -7,11 +7,12 @@ import Image from "next/image";
 import { GiTrophyCup } from "react-icons/gi";
 import { TbRosetteNumber1 } from "react-icons/tb";
 import { BsLightning } from "react-icons/bs";
+import ButtonPrimary from "@/app/misc/ButtonPrimary";
 
 const Hero = () => {
   const scrollAnimation = useMemo(() => getScrollAnimation(), []);
   return (
-    <div className="max-w-screen-xl mt-24 px-8 xl:px-16 mx-auto" id="about">
+    <div className="max-w-screen-xl mt-24 px-8 xl:px-16 mx-auto" id="inicio">
       <ScrollAnimationWrapper>
         <motion.div
           className="grid grid-flow-row sm:grid-flow-col grid-rows-2 md:grid-rows-1 sm:grid-cols-2 gap-8 py-6 sm:py-16"
@@ -25,9 +26,7 @@ const Hero = () => {
               Provide a network for all your needs with ease and fun using
               LaslesVPN discover interesting features from us.
             </p>
-            <button className="bg-pink-500 text-white-500 px-6 py-3 rounded-lg">
-              Descargar Catalogo
-            </button>
+            <ButtonPrimary>Descargar Catalogo</ButtonPrimary>
           </div>
           <div className="flex w-full">
             <motion.div className="h-full w-full" variants={scrollAnimation}>

@@ -1,6 +1,9 @@
 @tailwind base;
 @tailwind components;
 
+@import "slick-carousel/slick/slick.css";
+@import "slick-carousel/slick/slick-theme.css";
+
 @layer base {
   body {
     @apply font-inter;
@@ -38,3 +41,19 @@ p {
   @apply left-0 w-full;
 }
 @tailwind utilities;
+
+/* Slideshow */
+.slick-dots li {
+  @apply inline-block;
+}
+.slick-dots span {
+  @apply bg-gray-500;
+}
+.slick-dots .slick-active span {
+  @apply bg-orange-500 rounded-l-full rounded-r-full w-12;
+}
+
+/* purgecss end ignore */
+@tailwind utilities;
+/* purgecss start ignore */
+/* purgecss end ignore */

@@ -1,4 +1,5 @@
 import "./globals.css";
+
 import { Inter, Space_Grotesk, Sofia, Poppins } from "next/font/google";
 
 import OurServices from "@/components/OurServices";
@@ -17,10 +18,12 @@ const spaceGrotesk = Space_Grotesk({
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className="bg-gradient-to-br from-slate-100 via-red-100 to-emerald-200">
+      <body className="bg-gradient-to-r from-slate-100 via-white to-rose-100">
         <Header />
         <Hero />
         <Feature />
+        <OurServices />
+        <Foot />
 
         {children}
       </body>
